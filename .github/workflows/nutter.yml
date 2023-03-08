@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: NutterTesting
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  pull_request:
+    branches: [ "dev" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      # - uses: actions/setup-python@v4
+      #   with:
+      #       python-version: '3.10'
+
+      # - name: Installing Nutter
+      #   run: |
+      #     pip install nutter
+
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Run the databricks testing notebook
+        uses: databricks/run-notebook@v0
+        with:
+          local-notebook-path: testing/testing_notebook
+          databricks-host: 'https://adb-1597117601406945.5.azuredatabricks.net/'
+          databricks-token: 'dapi3375d7b9a7e9b522c960943b5c5b8205-3'
+          existing-cluster-id: '0207-003030-hpqse8zn'
+
+
