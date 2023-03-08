@@ -39,7 +39,7 @@ jobs:
       - name: Run the databricks notebook
         uses: databricks/run-notebook@v0
         with:
-          local-notebook-path: testing\testing_notebook.py
+          local-notebook-path: testing/testing_notebook.py
           databricks-host: 'https://adb-1597117601406945.5.azuredatabricks.net/'
           databricks-token: 'dapi3375d7b9a7e9b522c960943b5c5b8205-3'
           existing-cluster-id: '0207-003030-hpqse8zn'
