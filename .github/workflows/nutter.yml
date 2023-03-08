@@ -37,8 +37,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
-      - name: Run the databricks notebook
-        uses: databricks/run-notebook@v0
+      - name: Run the databricks testing notebook
+        uses: databricks/run-notebook@v0.0.3
         with:
           local-notebook-path: testing/testing_notebook.py
           databricks-host: 'https://adb-1597117601406945.5.azuredatabricks.net/'
