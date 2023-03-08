@@ -36,8 +36,3 @@ class MyTestFixture(NutterFixture):
 mandatory_fields = ['medallion', 'vendor_id']
 DFtesting = MyTestFixture(mandatory_fields, 'sample_file')
 result = DFtesting.execute_tests()
-# print(result.to_string())
-
-# COMMAND ----------
-
-
