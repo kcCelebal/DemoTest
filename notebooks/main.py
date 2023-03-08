@@ -1,8 +1,4 @@
 # Databricks notebook source
-import json
-
-# COMMAND ----------
-
 # CSV options
 infer_schema = 'true'
 first_row_is_header = 'true'
@@ -45,4 +41,5 @@ df.createOrReplaceGlobalTempView(view_name)
 
 # COMMAND ----------
 
+import json
 dbutils.notebook.exit(json.dumps(dic))

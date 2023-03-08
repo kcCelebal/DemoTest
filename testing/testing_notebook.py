@@ -6,10 +6,6 @@ import json
 
 # COMMAND ----------
 
-from runtime.nutterfixture import NutterFixture, tag
-from pyspark.sql.functions import *
-import json
-
 def matchColumnNames(df, dic):
     unmatched_col_list = []
     col_set = set(df.columns)
@@ -40,7 +36,7 @@ class MyTestFixture(NutterFixture):
 mandatory_fields = ['medallion', 'vendor_id']
 DFtesting = MyTestFixture(mandatory_fields, 'sample_file')
 result = DFtesting.execute_tests()
-print(result.to_string())
+# print(result.to_string())
 
 # COMMAND ----------
 
