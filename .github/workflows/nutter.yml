@@ -36,6 +36,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - run: ls ${{ github.workspace }}/testing
       - name: Run the databricks notebook
         uses: databricks/run-notebook@v0
         with:
