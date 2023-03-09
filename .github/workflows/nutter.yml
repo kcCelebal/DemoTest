@@ -46,4 +46,12 @@ jobs:
           databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
           existing-cluster-id: ${{ secrets.EXISTING_CLUSTER_ID }}
 
+      - name: Publish Test Results
+        uses: mikepenz/action-junit-report@v3
+        if: success() || failure()
+        with:
+           name: nutter-test-results
+           report_paths: 'testing/TEST-*.xml'
+
+
 
