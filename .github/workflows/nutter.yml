@@ -41,6 +41,7 @@ jobs:
         uses: databricks/run-notebook@v0.0.3
         with:
           local-notebook-path: testing/testing_notebook.py
+          git-branch: ${{ github.head_ref || github.ref_name }}
           databricks-host: ${{ secrets.DATABRICKS_HOST }}
           databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
           existing-cluster-id: ${{ secrets.EXISTING_CLUSTER_ID }}
